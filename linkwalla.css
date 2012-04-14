@@ -1,0 +1,233 @@
+p.detail {
+    margin-top: -15px;
+    padding-top: 0;
+}
+
+
+/* LINK LIST STYLES */
+
+.archives {
+    margin-top: 1.5em;
+    color: #655;
+}
+
+a.currentArchive {font-weight: bold;}
+
+.showOldArchives {
+	text-decoration: underline;
+}
+
+.xfolkentry {
+    margin-bottom: 20px;
+}
+
+.description {
+    margin-left: 1em;
+}
+.description img {
+	border: 1px solid black;
+}
+
+#links h3 {
+    font-size: 18px;
+    font-weight: normal;
+    padding: 0;
+    border: 0;
+}
+
+#links h3 a:link, #links h3 a:visited {
+    color: #0090DA;
+    text-decoration: none;
+    border-bottom: 1px solid #aef;
+}
+
+.lwPermanentLink {
+	text-decoration: none;
+	border:0;
+}
+.lwPermanentLink img {border:0;}
+    
+#links h3 a:hover {
+    color: #6EB9E0;
+}
+
+a.editlink:link, a.editlink:visited {
+    color: #804000;
+    border: 0;
+    margin-right: 4px;
+    padding: 0 1px;
+}
+
+a.editlink:hover {
+    background-color: #DA9000;
+    color: #FFF;
+}
+
+/* Confirmation and error messages */
+.lwFailed {
+    background-color:#FFD;
+    border:2px solid #A00;
+    padding: 3px;
+}
+.lwSuccess {
+    background-color:#CFC;
+    border:2px solid #0A0;
+    padding: 3px;
+}
+
+/* FORM STYLES */
+
+form {
+padding: 1em 0;
+}
+
+form div {
+clear: both;
+margin-bottom: 2px;
+padding-left: 22px;
+}
+
+div.textinput label {
+display: block;
+float: left;
+width: 120px;
+font-weight: bold;
+}
+
+div.checkbox label{
+font-weight: bold;
+padding-left: .5em;
+}
+
+div#submitdiv {
+padding-top: 1em;
+}
+
+div#submitdiv input, div#submitdiv button{
+width: 60px;
+background-color: #F0F0C3;
+}
+
+textarea {
+    width: 365px;
+}
+
+input, textarea, button {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ccc #aaa #aaa #ccc;
+    font-family: Helvetica, Helvetica Neue, Arial, sans-serif;
+    font-size: 12px;
+}
+
+input:focus, textarea:focus {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #888 #666 #666 #888;
+}
+#formerror {
+    display:none;
+    background-color:#FFD;
+    border:2px solid #A00;
+    padding: 3px;
+}
+
+#phpformerror {
+    background-color:#FFD;
+    border:2px solid #A00;
+    padding: 3px;
+}
+
+.lwSubmit {
+    border-color: #888 #666 #666 #888;
+}
+
+
+/*** Just for Looks ***/
+
+
+body {
+    background-color: #BDB5A8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+#page {
+    width: 700px;
+    margin: 15px auto;
+    border-color: #804000;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #FFF;
+    padding: 15px;
+}
+
+a:link, a:visited {
+    color: #0090DA;
+    text-decoration: none;
+}
+
+a:hover {
+	border-bottom: 1px dashed #0090DA;
+}
+
+
+/* CSS USED FOR LIGHTBOX CODE */
+/* - - - - - - - - - - - - - - - - - - - - -
+Title : Lightbox CSS
+Author : Kevin Hale
+URL : http://particletree.com/features/lightbox-gone-wild/
+Created : January 13, 2006
+Modified : February 1, 2006
+- - - - - - - - - - - - - - - - - - - - - */
+#lightbox{
+	display:none;
+	position: absolute;
+	top:50%;
+	left:50%;
+	z-index:9999;
+	width:500px;
+	height:auto;
+	margin:-300px 0 0 -250px;
+	border:1px solid #fff;
+	background:#FDFCE9;
+	text-align:left;
+	padding:20px;
+}
+#lightbox[id]{
+	position:fixed;
+}
+#overlay{
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:5000;
+	background-image: url(overlay.png); 
+}
+#overlay[id]{
+	position:fixed;
+}
+* html #overlay{
+	back\ground-color: transparent;
+	background-image: url(blank.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="overlay.png", sizingMethod="scale");
+}
+#lightbox.done #lbLoadMessage{
+	display:none;
+}
+#lightbox.done #lbContent{
+	display:block;
+}
+#lightbox.loading #lbContent{
+	display:none;
+}
+#lightbox.loading #lbLoadMessage{
+	display:block;
+}
+#lightbox.done img{
+	width:100%;
+	height:100%;
+}
