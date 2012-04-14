@@ -1,0 +1,147 @@
+
+README - LINKWALLA - Version 1.063 - June 24, 2008
+
+Change List:
+* Smoothed out some issues around login status and the bookmarklet.
+* Added new version of protoype JS library
+* This is the first version offered from Google Code. 
+
+If you are upgrading from 1.062 you should replace these files:
+
+* lwFunctions.php
+* login.php
+* item-edit.php
+* lwSettings-edit.php
+* prototype.js
+
+--- 
+
+Thanks for checking out Linkwalla. I would really love it if you sent me
+an email telling me that used this. Go to http://benbrophy.com/contact/
+
+REQUIRES: PHP 5
+
+WHAT DOES LINKWALLA DO?:
+ - Build a simple link blog on your website. 
+ - Add, edit and delete entries from the blog.
+ - An installer to makes getting started easy.
+ - Creates an RSS feed as you update the blog. 
+ - An individual page for each entry serves as a permalink and improves 
+   search engine indexing
+ - Monthly archives of entries
+ - Runs off XML files - no DB needed
+ - Comes with a JavaScript bookmark for adding links from your browser
+ - Copy new links to your del.icio.us account when you add them
+ - Copy new links to your Magnolia account when you add them
+ - If you link to a photo in Flickr, a thumbnail of the photo is
+   automatically inserted in your entry.
+ - Displays links using the xFolk microformat
+
+
+INSTALLATION: 
+- Copy all files to your server. (Note: It doesn't matter what you name 
+  the directory or if the files are at the document root of your server.
+  Everything will work as long as you keep the Linkwalla files together in
+  the same directory.)
+- In your web browser navigate to the directory where you uploaded the
+  folders. The Linkwalla home page - 'index.php' - will have a link to the
+  installation page.
+- Fill out the form on the installer, and submit.
+- Delete the installation page (lwInstaller.php) from your webserver. If
+  you don't someone could use it to take over your linkwalla. 
+- Have fun! Let ke know how it goes: http://benbrophy.com/contact/
+
+
+DIRECTIONS: 
+Hopefully pretty self explanatory. Click "log in" at the top of the page
+to get started (default password = "pw"). Then you'll see links to add,
+remove and edit links. The bookmarklet will make you're life much
+easier. 
+
+You can add HTML tags to link descriptions or create them easily by
+writing using the 'Markdown' format. See
+http://daringfireball.net/projects/markdown/basics
+
+
+USING THE BOOKMARKLET:
+You will find the find bookmarklet on the settings page. You can add the
+edited bookmarklet to your web browsers bookmarks either by dragging it
+onto your bookmark bar or right-clicking it and selecting "Add to
+favorites" (vaires depending on which web browser your use.
+
+When you arrive at a page you would like to bookmark, just click the
+bookmarklet and you will arrive in linkwalla with the link info
+pre-filled.
+
+FILE LIST:
+lwFunctions.php
+These functions include basic authorization functions (Sets a cookie if
+you fill out the password. Checks to see if you're logged in, etc.)
+Other functions to generate XML, RSS, the HTML for link lists and the
+export to del.icio.us and ma.gnolia. 
+
+lwInstaller.php
+This is the first page you use in Linkwalla. It sets up your settings
+file, your archives and your RSS feed. Be sure to delete this file from
+your server after you use it. 
+
+lwSettings.xml
+This file stores your passwords, and information that will go in your
+RSS feed. (don't worry, the passwords are encrypted). The file is
+generated when you submit lwInstaller.php
+
+foot.php
+head.php
+These 2 files can be edited to match your web design. There is some
+basic PHP templating stuff you might want to keep in head.php, and be
+sure to preseve the javascript, css and RSS links.
+
+index.php
+Main view, shows the link list, and the command links if you are logged
+in.
+
+item-detail.php
+This is the template for viewing one link at a time. 
+
+item-act.php
+This is the PHP that processes forms for adding, editing and removing
+links.
+
+item-edit.php
+The form for adding or editing links.
+
+item-remove.php
+The confirmation page for removing links.
+
+archive/*.xml
+This is the 'database' that stores the link data. A new XML file will be
+generated for every month (this makes linkwalla scale better as you use
+it year after year). The directory and  initial archive file are
+generated when you submit lwInstaller.php
+
+linkrss.xml
+RSS feed that is updated when the link list is modified. The file is
+generated when you submit lwInstaller.php
+
+linkwalla.js
+Validation and dynamic display scripts.
+
+linkwalla.css
+This file can be edited to match your web design. 
+
+login.php
+Login form (a simple username and password).
+
+overlay.png
+Translucent image used when the add/edit link form pops up.
+
+lwbookmark.gif
+Bookmark icon used for permalinks in the link list.
+
+markdown.php
+External PHP function that converts the text used in link descriptions
+to HTML. See http://www.michelf.com/projects/php-markdown/
+
+prototype.js
+External javascript library used to make adding ajax interactions easier
+for the developer. (see http://prototypejs.org/ to learn more)
