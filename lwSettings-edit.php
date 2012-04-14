@@ -18,10 +18,6 @@ include 'head.php';
 		$rssWebMaster = $settingsXml->rssWebMaster;
 		$rssLanguage = $settingsXml->rssLanguage;
 		$linkListCount = $settingsXml->linkListCount;
-		$del_username = linkwalla_decode($settingsXml->del_username);
-		$del_password = linkwalla_decode($settingsXml->del_password);
-		$mag_username = linkwalla_decode($settingsXml->mag_username);
-		$mag_password = linkwalla_decode($settingsXml->mag_password);
 	$xmldec= '<?xml version="1.0" encoding="UTF-8"?>';
 
 /* 2 GET VALUES FROM THE FORM */
@@ -57,10 +53,6 @@ if($_POST["actiontype"]) {
   <lwUsername><?php echo $lwSettings['lwUsername'];?></lwUsername>
 	<lwPassword><?php echo $lwNewPassword;?></lwPassword>
 	<lwLoginKey><?php echo $lwLoginKey;?></lwLoginKey>
-	<del_username><?php echo $lwSettings['del_username'];?></del_username>
-	<del_password><?php echo $lwSettings['del_password'];?></del_password>
-	<mag_username><?php echo $lwSettings['mag_username'];?></mag_username>
-	<mag_password><?php echo $lwSettings['mag_password'];?></mag_password>
 	<rssTitle><?php echo $lwSettings['rssTitle'];?></rssTitle>
 	<rssLink><?php echo $lwSettings['rssLink'];?></rssLink>
 	<rssDescription><?php echo $lwSettings['rssDescription'];?></rssDescription>
@@ -127,29 +119,6 @@ $lwHome = 'http://' . $_SERVER['HTTP_HOST'] . substr($_SERVER['PHP_SELF'], 0, -1
 	</div>
 </fieldset>
 
-<fieldset>
-	<legend>Del.icio.us Login</legend>
-	<div class="textinput">
-		<label for="del_username">Del.icio.us Username</label>
-		<input type="text" name="del_username" id="del_username" size="20" maxlength="20" value="<?php echo $del_username; ?>"/>
-	</div>
-	<div class="textinput">
-		<label for="del_password">Del.icio.us Password</label>
-		<input type="password" name="del_password" id="del_password" size="20" maxlength="20" value="<?php echo $del_password; ?>" />
-	</div>
-</fieldset>
-
-<fieldset>
-	<legend>Magnolia Login</legend>
-	<div class="textinput">
-		<label for="mag_username">Magnolia Username</label>
-		<input type="text" name="mag_username" id="mag_username" size="20" maxlength="20" value="<?php echo $mag_username; ?>"/>
-	</div>
-	<div class="textinput">
-		<label for="mag_password">Magnolia Password</label>
-		<input type="password" name="mag_password" id="mag_password" size="20" maxlength="20" value="<?php echo $mag_password; ?>" />
-	</div>
-</fieldset>
 
 <fieldset>
 	<legend>Link List</legend>

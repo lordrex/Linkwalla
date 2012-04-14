@@ -8,10 +8,6 @@ if(file_exists('lwSettings.xml')) {
 	$settingsXml = simplexml_load_file($settingsFile);
 	$username = $settingsXml->lwUsername;
 	$secretpassword = $settingsXml->lwPassword;
-	$del_username = linkwalla_decode($settingsXml->del_username);
-	$del_password = linkwalla_decode($settingsXml->del_password);
-	$mag_username = linkwalla_decode($settingsXml->mag_username);
-	$mag_password = linkwalla_decode($settingsXml->mag_password);
 	$rssTitle = $settingsXml->rssTitle;
 	$rssLink = $settingsXml->rssLink;
 	$rssDescription = $settingsXml->rssDescription;
@@ -97,10 +93,6 @@ function lw_deleteInstaller() {
 /* ADD: WRITES THE NEW LINK XML - THEN REWRITES ALL OF THE OLD ENTRIES */
 function lwAdd($xmlFileName,$lwData) {
 	global $xmldec;
-	global $del_username;
-	global $del_password;
-	global $mag_username;
-	global $mag_password;
 	if(file_exists($xmlFileName)) {
 		$xml = simplexml_load_file($xmlFileName);
 	}
@@ -135,29 +127,6 @@ function lwAdd($xmlFileName,$lwData) {
     $handle = fopen($filename, "w");
     fwrite($handle, $somecontent);
     fclose($handle);
-// Parameters for del.icio.us update
-if($lwData['del_post']=="si") {
-    $params = array( 
-        'url'  => $lwData['url'], // The URL
-        'description'  => $lwData['linktitle'], // The linkwalla title
-        'extended'  => $lwData['description'], // The linkwalla description
-        'tags'     => $lwData['del_tags'], // tags (not saved in XML)
-        'dt'     => date("c") // datestamp ISO8601
-    );
-    linkwalla_delicious($del_username, $del_password, $params);
-}
-// Parameters for ma.gnolia update
-if($lwData['mag_post']=="si") {
-    $params = array( 
-        'title'  => $lwData['linktitle'], // The linkwalla title
-        'description'  => $lwData['description'], // The linkwalla description
-        'url'  => $lwData['url'], // The URL
-        'private'  => "false", // The privacy setting
-        'rating'  => 5, // The Rating
-        'tags'     => $lwData['mag_tags'] // tags (not saved in XML)
-    );
-    linkwalla_magnolia($mag_username, $mag_password, $params);
-}
     return true;
 }
 
@@ -449,36 +418,6 @@ else {
 	echo "\n\n" . htmlspecialchars("<a href=\"$flickrURL\"><img src=\"$thumbnailSource\" alt=\"view image on Flickr\" title=\"view image on Flickr $photoID \" /></a>");
 }
 
-
-////////////////////////
-// DEL.ICIO.US UPDATE //
-////////////////////////
-
-function linkwalla_delicious($del_username, $del_password, $params) {
-    $base = "https://$del_username:$del_password@api.del.icio.us/v1/posts/add";
-    $query_string = '';
-    foreach ($params as $key => $value) { 
-        $query_string .= "$key=" . urlencode($value) . "&";
-    }
-    $url = "$base?$query_string";
-    $response = file_get_contents($url);
-}
-
-////////////////////////
-// MA.GNOLIA UPDATE //
-////////////////////////
-function linkwalla_magnolia($mag_username, $mag_password, $params) {
-    $mag_key_file = file_get_contents("https://ma.gnolia.com/api/rest/1/get_key?id=$mag_username&password=$mag_password");
-    $mag_key_xml = simplexml_load_string($mag_key_file);
-    $mag_key = $mag_key_xml->key;
-    $base         = "http://ma.gnolia.com/api/rest/1/bookmarks_add?api_key=$mag_key";
-    $query_string = '';
-    foreach ($params as $key => $value) { 
-        $query_string .= "$key=" . urlencode($value) . "&";
-    }
-    $url = "$base&$query_string";
-    $response = file_get_contents($url);
-}
 
 // ENCRYPTION 
 

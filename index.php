@@ -25,7 +25,7 @@ if($loginstatus == 1 && file_exists('lwSettings.xml') && file_exists('lwInstalle
 }
 if($action == "lw_deleteInstaller"){ lw_deleteInstaller(); }
 ?>
-<p><a href="linkrss.xml">Syndicate (RSS)</a></p>
+<p><a href="linkrss.xml" title="Copy this link and use it in google reader or any other RSS reader.">Subscribe to RSS</a></p>
 
 <!-- Login -->
 <p><?php if($loginstatus == 1) { ?>

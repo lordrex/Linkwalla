@@ -19,10 +19,6 @@ if($del_username!='') {
 	$lwData['del_post'] = $_POST["del_post"];
 	$lwData['del_tags'] = $_POST["del_tags"];
 }
-if($mag_username!='') {
-	$lwData['mag_post'] = $_POST["mag_post"];
-	$lwData['mag_tags'] = $_POST["mag_tags"];
-}
 
 /* 2. SELECT THE XML FILE */
 $archive =$_POST["archive"];
