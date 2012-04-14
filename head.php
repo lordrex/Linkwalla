@@ -14,6 +14,10 @@ else {
     echo'<title>Linkwalla</title>';
 }
 ?>
+<link rel="stylesheet" type="text/css" href="css/ui-lightnes/jquery-ui-1.8.18.custom.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+<script src="js/lw.js" type="text/javascript"></script>
 <script src="prototype.js" type="text/javascript"></script>
 <script src="linkwalla.js" type="text/javascript"></script>
 <style type="text/css" title="text/css">
